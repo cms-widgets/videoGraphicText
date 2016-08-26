@@ -1,13 +1,13 @@
 <!--预览视图-->
-<div>
-    <div class="col-xs-3 mb10">
-        <img class="img-responsive img-thumbnail center-block js-image videoThumbnail"
+<div class="video-text-group">
+    <div class="video-thumbnail">
+        <img class="img-responsive videoThumbnail"
              src="http://placehold.it/80x80?text=banner"
              th:src="${videoThumbnail}"/>
     </div>
-    <div class="form-inline col-xs-9 row mb10">
-        <a class="linkUrl" th:href="${linkUrl}" th:text="${videoTitle}"></a>
-        <p class="videoDetail" th:text="${videoDetail}"></p>
+    <div class="video-info">
+        <a class="video-info-title linkUrl" th:href="${linkUrl}" th:text="${videoTitle}"></a>
+        <p class="video-info-detail videoDetail" th:text="${videoDetail}"></p>
     </div>
 </div>
 <!--/预览视图-->
