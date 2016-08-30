@@ -29,10 +29,6 @@ import java.util.Map;
  * @author CJ
  */
 public class WidgetInfo implements Widget {
-    /*
-     * 指定风格的模板类型 如：html,text等
-     */
-    public static final String VALID_STYLE_TEMPLATE = "styleTemplate";
     public static final String VALID_VIDEO_THUMBNAIL = "videoThumbnail";
     public static final String VALID_VIDEO_TITLE = "videoTitle";
     public static final String VALID_VIDEO_DETAIL = "videoDetail";
@@ -92,12 +88,11 @@ public class WidgetInfo implements Widget {
     public void valid(String styleId, ComponentProperties componentProperties) throws IllegalArgumentException {
         WidgetStyle style = WidgetStyle.styleByID(this, styleId);
         //加入控件独有的属性验证
-        String detail = (String) componentProperties.get(VALID_VIDEO_DETAIL);
+        String detail = componentProperties.get(VALID_VIDEO_DETAIL).toString();
         String title = (String) componentProperties.get(VALID_VIDEO_TITLE);
         String thumbail = (String) componentProperties.get(VALID_VIDEO_THUMBNAIL);
-        String linkUrl = (String) componentProperties.get(VALID_VIDEO_LINK_URL);
-        if (detail == null || title == null || thumbail == null || linkUrl == null || detail.equals("")
-                || title.equals("") || thumbail.equals("") || linkUrl.equals("")) {
+        if (detail == null || title == null || thumbail == null || detail.equals("")
+                || title.equals("") || thumbail.equals("") ) {
             throw new IllegalArgumentException("控件缺少参数");
         }
 
@@ -112,16 +107,10 @@ public class WidgetInfo implements Widget {
     @Override
     public ComponentProperties defaultProperties(ResourceService resourceService) throws IOException {
         ComponentProperties properties = new ComponentProperties();
-        try {
-            WidgetIdentifier identifier = new WidgetIdentifier(groupId(), widgetId(), version());
-            properties.put(VALID_VIDEO_TITLE, "这是一个视频");
-            properties.put(VALID_VIDEO_DETAIL, "这个视频很烂");
-            properties.put(VALID_VIDEO_LINK_URL, "http://www.huobanpulsh.com");
-            properties.put(VALID_VIDEO_THUMBNAIL, resourceService.getResource("widget/" + identifier.toURIEncoded()
-                    + "/" + "thumbnail/defaultStyleThumbnail.png").httpUrl().toURI().toString());
-        } catch (URISyntaxException e) {
-
-        }
+        properties.put(VALID_VIDEO_TITLE, "这是一个视频");
+        properties.put(VALID_VIDEO_DETAIL, "这是一个视频描述，这是一个视频描述，这是一个视频描述");
+        properties.put(VALID_VIDEO_LINK_URL, "http://www.huobanpulsh.com");
+        properties.put(VALID_VIDEO_THUMBNAIL, "http://placehold.it/400x250?text=video");
         return properties;
     }
 

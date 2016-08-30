@@ -6,17 +6,17 @@ CMSWidgets.initWidget({
     editor: {
         properties: null,
         saveComponent: function (onSuccess, onFailed) {
-            this.properties.videoThumbnail = $(".videoThumbnail").attr("src");
-            this.properties.videoTitle  = $(".videoTitle").val();
-            this.properties.linkUrl = $(".linkUrl").val();
-            this.properties.videoDetail = $(".videoDetail").val();
+            this.properties.videoThumbnail = $(".addEditBox .videoThumbnail").attr("src");
+            this.properties.videoTitle  = $(".addEditBox .videoTitle").val();
+            this.properties.linkUrl = $(".addEditBox .linkUrl").val();
+            this.properties.videoDetail = $(".addEditBox .videoDetail").text();
             onSuccess(this.properties);
             return this.properties;
         },
         open: function (globalId) {
             this.properties = widgetProperties(globalId);
             $('.js-addEditBtn').addEdit({
-                debug: true,
+                // debug: true,
                 amount: 1,
                 hasImage: true,
                 imageClass: 'videoThumbnail',

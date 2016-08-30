@@ -47,7 +47,7 @@ public class TestWidgetInfo extends WidgetTest {
         actions.sendKeys(title,"abc").build().perform();
         actions.sendKeys(detail,"abc").build().perform();
         Map map = currentWidgetProperties.get();
-        assertThat(map.get(WidgetInfo.VALID_VIDEO_DETAIL))
+        assertThat(map.get(WidgetInfo.VALID_VIDEO_DETAIL).toString())
                 .isEqualTo("abc");
         assertThat(map.get(WidgetInfo.VALID_VIDEO_LINK_URL))
                 .isEqualTo("abc");
