@@ -9,7 +9,11 @@ CMSWidgets.initWidget({
             this.properties.videoThumbnail = $(".addEditBox .videoThumbnail").attr("src");
             this.properties.videoTitle  = $(".addEditBox .videoTitle").val();
             this.properties.linkUrl = $(".addEditBox .linkUrl").val();
-            this.properties.videoDetail = $(".addEditBox .videoDetail").text();
+            this.properties.videoDetail = $(".addEditBox .videoDetail").val();
+            if(this.properties.videoTitle=='' || this.properties.videoDetail=='' || this.properties.videoThumbnail==''){
+                onFailed("组件标题和描述不能为空,未能保存,请完善。");
+                return;
+            }
             onSuccess(this.properties);
             return this.properties;
         },

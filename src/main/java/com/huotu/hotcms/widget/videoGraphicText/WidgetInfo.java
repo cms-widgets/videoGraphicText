@@ -54,7 +54,7 @@ public class WidgetInfo implements Widget {
 
     @Override
     public String description(Locale locale) {
-        if (locale.equals(Locale.CHINESE)) {
+        if (locale.equals(Locale.CHINA)) {
             return "这是一个 视频文字，你可以对组件进行自定义修改。";
         }
         return "This is a videoGraphicText,  you can make custom change the component.";
