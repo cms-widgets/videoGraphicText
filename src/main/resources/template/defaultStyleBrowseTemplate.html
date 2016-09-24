@@ -1,9 +1,9 @@
 <!--预览视图-->
 <div class="video-text-group">
-    <div class="video-thumbnail">
+    <div class="video-thumbnail" th:each="item:${dataList}">
         <img class="img-responsive videoThumbnail"
              src="http://placehold.it/80x80?text=banner"
-             th:src="${videoThumbnail}"/>
+             res:src="${item.thumbUri}"/>
     </div>
     <div class="video-info">
         <h2 class="video-info-title linkUrl" th:href="${linkUrl}" th:text="${videoTitle}"><a href="#">国厚的企业文化</a></h2>
