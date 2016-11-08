@@ -78,7 +78,7 @@ public class WidgetInfo implements Widget, PreProcessWidget {
 
     @Override
     public String dependVersion() {
-        return "1.0-SNAPSHOT";
+        return "1.1.0";
     }
 
     @Override
@@ -147,17 +147,6 @@ public class WidgetInfo implements Widget, PreProcessWidget {
                 .getBean(CMSDataSourceService.class);
         List<GalleryItemModel> picImg = cmsDataSourceService.findGalleryItems(picImgSerial, 1);
         variables.put(VALID_DATA_LIST, picImg);
-    }
-
-    /**
-     * 从CMSContext中获取CMSService的实现
-     * @param cmsService    需要返回的service接口
-     * @param <T>           返回的service实现
-     * @return
-     */
-    private <T> T getCMSServiceFromCMSContext(Class<T> cmsService){
-        return CMSContext.RequestContext().
-                getWebApplicationContext().getBean(cmsService);
     }
 
     /**
