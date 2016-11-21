@@ -13,18 +13,18 @@
     <div class="addEditBox row">
         <div class="form-inline col-xs-9 row mb10">
             <div class="col-xs-12 mb10 "><label class="mr6">文字：</label>
-                <input class="form-control videoTitle" type="text" name="text" th:value="${videoTitle}"
+                <input class="form-control videoTitle" type="text" name="videoTitle" th:value="${videoTitle}"
                        placeholder="文字内容">
+            </div>
+            <div class="col-xs-12 mb10 "><label class="mr6">英文：</label>
+                <input class="form-control englishTitle" type="text" name="englishTitle" th:value="${englishTitle}"
+                       placeholder="英文">
             </div>
             <div class="col-xs-12 mb10 "><label class="mr6">链接：</label>
                 <select class="form-control mr6 js-get-source">
                     <option value="noUrl">不添加链接</option>
-                    <option value="0">文章资源</option>
                     <option value="1">链接资源</option>
                     <option value="2">视频资源</option>
-                    <option value="3">公告资源</option>
-                    <option value="4">图片资源</option>
-                    <option value="5">下载资源</option>
                     <option value="6">页面资源</option>
                     <option value="custom">自定义链接</option>
                 </select>

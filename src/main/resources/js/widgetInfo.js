@@ -6,6 +6,7 @@ CMSWidgets.initWidget({
     editor: {
         saveComponent: function ( onFailed) {
             this.properties.videoTitle  = $(".addEditBox .videoTitle").val();
+            this.properties.englishTitle  = $(".addEditBox .englishTitle").val();
             this.properties.linkUrl = $(".addEditBox .linkUrl").val();
             this.properties.videoDetail = $(".addEditBox .videoDetail").val();
             if(this.properties.videoTitle=='' || this.properties.videoDetail=='' || this.properties.serial==''){

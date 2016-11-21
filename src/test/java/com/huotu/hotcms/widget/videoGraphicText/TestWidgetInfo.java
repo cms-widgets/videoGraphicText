@@ -41,16 +41,21 @@ public class TestWidgetInfo extends WidgetTest {
         WebElement detail = editor.getWebElement().findElement(By.className(WidgetInfo.VALID_VIDEO_DETAIL));
         WebElement linkUrl = editor.getWebElement().findElement(By.className(WidgetInfo.VALID_VIDEO_LINK_URL));
         WebElement title = editor.getWebElement().findElement(By.className(WidgetInfo.VALID_VIDEO_TITLE));
+        WebElement englishTitle = editor.getWebElement().findElement(By.className(WidgetInfo.VALID_ENGLISH_TITLE));
         detail.clear();
         linkUrl.clear();
         title.clear();
+        englishTitle.clear();
         actions.sendKeys(linkUrl,"abc").build().perform();
         actions.sendKeys(title,"abc").build().perform();
         actions.sendKeys(detail,"abc").build().perform();
+        actions.sendKeys(englishTitle,"abc").build().perform();
         Map map = currentWidgetProperties.get();
         assertThat(map.get(WidgetInfo.VALID_VIDEO_DETAIL).toString())
                 .isEqualTo("abc");
         assertThat(map.get(WidgetInfo.VALID_VIDEO_LINK_URL))
+                .isEqualTo("abc");
+        assertThat(map.get(WidgetInfo.VALID_ENGLISH_TITLE))
                 .isEqualTo("abc");
         assertThat(map.get(WidgetInfo.VALID_VIDEO_TITLE))
                 .isEqualTo("abc");
@@ -64,10 +69,15 @@ public class TestWidgetInfo extends WidgetTest {
 
         assertThat(webElement.findElement(By.className(WidgetInfo.VALID_VIDEO_DETAIL)).getText())
                 .isEqualTo(properties.get(WidgetInfo.VALID_VIDEO_DETAIL));
-        assertThat(webElement.findElement(By.className(WidgetInfo.VALID_VIDEO_LINK_URL)).getText())
+
+        assertThat(webElement.findElement(By.className(WidgetInfo.VALID_VIDEO_LINK_URL)).findElement(By.tagName("a")).getText())
                 .isEqualTo(properties.get(WidgetInfo.VALID_VIDEO_TITLE));
-        assertThat(webElement.findElement(By.className(WidgetInfo.VALID_VIDEO_LINK_URL)).getAttribute("href"))
+
+        assertThat(webElement.findElement(By.className(WidgetInfo.VALID_VIDEO_LINK_URL)).findElement(By.tagName("a")).getAttribute("href"))
                 .isEqualTo(properties.get(WidgetInfo.VALID_VIDEO_LINK_URL));
+
+        assertThat(webElement.findElement(By.className(WidgetInfo.VALID_VIDEO_LINK_URL)).findElement(By.tagName("span")).getText())
+                .isEqualTo(properties.get(WidgetInfo.VALID_ENGLISH_TITLE));
     }
 
     @Override
@@ -79,6 +89,8 @@ public class TestWidgetInfo extends WidgetTest {
                 .isEqualTo(properties.get(WidgetInfo.VALID_VIDEO_DETAIL));
         assertThat(webElement.findElement(By.className(WidgetInfo.VALID_VIDEO_LINK_URL)).getAttribute("value"))
                 .isEqualTo(properties.get(WidgetInfo.VALID_VIDEO_LINK_URL));
+        assertThat(webElement.findElement(By.className(WidgetInfo.VALID_ENGLISH_TITLE)).getAttribute("value"))
+                .isEqualTo(properties.get(WidgetInfo.VALID_ENGLISH_TITLE));
         assertThat(webElement.findElement(By.className(WidgetInfo.VALID_VIDEO_TITLE)).getAttribute("value"))
                 .isEqualTo(properties.get(WidgetInfo.VALID_VIDEO_TITLE));
     }

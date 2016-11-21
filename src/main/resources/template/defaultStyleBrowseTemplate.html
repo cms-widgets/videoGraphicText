@@ -6,7 +6,11 @@
              res:src="${item.thumbUri}"/>
     </div>
     <div class="video-info">
-        <h2 class="video-info-title linkUrl" th:href="${linkUrl}" th:text="${videoTitle}"><a href="#">国厚的企业文化</a></h2>
+        <h2 class="video-info-title linkUrl">
+            <a href="javascript:void(0)" th:href="${linkUrl}" th:text="${videoTitle}">国厚的企业文化</a>
+            <!-- todo 新增加的span需要添加对应样式-->
+            <span th:text="${englishTitle}">this a English Title</span>
+        </h2>
         <p class="video-info-detail videoDetail" th:text="${videoDetail}"></p>
     </div>
 </div>

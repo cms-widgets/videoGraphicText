@@ -46,6 +46,7 @@ import java.util.UUID;
 public class WidgetInfo implements Widget, PreProcessWidget {
     public static final String VALID_VIDEO_SERIAL = "serial";
     public static final String VALID_VIDEO_TITLE = "videoTitle";
+    public static final String VALID_ENGLISH_TITLE = "englishTitle";
     public static final String VALID_VIDEO_DETAIL = "videoDetail";
     public static final String VALID_VIDEO_LINK_URL = "linkUrl";
     public static final String VALID_DATA_LIST = "dataList" ;
@@ -105,7 +106,7 @@ public class WidgetInfo implements Widget, PreProcessWidget {
         WidgetStyle style = WidgetStyle.styleByID(this, styleId);
         //加入控件独有的属性验证
         String detail = componentProperties.get(VALID_VIDEO_DETAIL).toString();
-        String title = (String) componentProperties.get(VALID_VIDEO_TITLE);
+        String title = (String) componentProperties.get(VALID_ENGLISH_TITLE);
         String serial = (String) componentProperties.get(VALID_VIDEO_SERIAL);
         if (detail == null || title == null || serial == null || detail.equals("")
                 || title.equals("") || serial.equals("") ) {
@@ -124,6 +125,7 @@ public class WidgetInfo implements Widget, PreProcessWidget {
     public ComponentProperties defaultProperties(ResourceService resourceService) throws IOException {
         ComponentProperties properties = new ComponentProperties();
         properties.put(VALID_VIDEO_TITLE, "这是一个视频");
+        properties.put(VALID_ENGLISH_TITLE, "THIS IS A VIDEO");
         properties.put(VALID_VIDEO_DETAIL, "这是一个视频描述，这是一个视频描述，这是一个视频描述");
         properties.put(VALID_VIDEO_LINK_URL, "http://www.huobanpulsh.com");
         // 随意找一个数据源,如果没有。那就没有。。
