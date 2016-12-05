@@ -76,7 +76,7 @@ public class TestWidgetInfo extends WidgetTest {
         assertThat(webElement.findElement(By.className(WidgetInfo.VALID_VIDEO_LINK_URL)).findElement(By.tagName("a")).getAttribute("href"))
                 .isEqualTo(properties.get(WidgetInfo.VALID_VIDEO_LINK_URL));
 
-        assertThat(webElement.findElement(By.className(WidgetInfo.VALID_VIDEO_LINK_URL)).findElement(By.tagName("span")).getText())
+        assertThat(webElement.findElement(By.tagName("span")).getText())
                 .isEqualTo(properties.get(WidgetInfo.VALID_ENGLISH_TITLE));
     }
 

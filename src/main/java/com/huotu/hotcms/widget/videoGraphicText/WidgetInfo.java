@@ -106,7 +106,7 @@ public class WidgetInfo implements Widget, PreProcessWidget {
         WidgetStyle style = WidgetStyle.styleByID(this, styleId);
         //加入控件独有的属性验证
         String detail = componentProperties.get(VALID_VIDEO_DETAIL).toString();
-        String title = (String) componentProperties.get(VALID_ENGLISH_TITLE);
+        String title = (String) componentProperties.get(VALID_VIDEO_TITLE);
         String serial = (String) componentProperties.get(VALID_VIDEO_SERIAL);
         if (detail == null || title == null || serial == null || detail.equals("")
                 || title.equals("") || serial.equals("") ) {
